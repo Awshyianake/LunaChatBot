@@ -69,7 +69,7 @@ async def start(_, message):
 @luna.on_message(
     ~filters.private
     & filters.text
-    & ~filters.command("help")
+    & ~filters.command("zhelp")
     & ~filters.edited,
     group=69,
 )
@@ -82,7 +82,7 @@ async def chat(_, message):
             return
     else:
         match = re.search(
-            "[.|\n]{0,}luna[.|\n]{0,}",
+            "[.|\n]{0,}niskala[.|\n]{0,}",
             message.text.strip(),
             flags=re.IGNORECASE,
         )
@@ -92,7 +92,7 @@ async def chat(_, message):
 
 
 @luna.on_message(
-    filters.private & ~filters.command("help") & ~filters.edited
+    filters.private & ~filters.command("zhelp") & ~filters.edited
 )
 async def chatpm(_, message):
     if not message.text:
